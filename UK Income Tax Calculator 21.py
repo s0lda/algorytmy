@@ -1,5 +1,4 @@
-income = int(input('What\'s you income?:''\n'))
-income = 52000
+income = int(input('Enter your salary: ''\n'))
 # Tax Free Allowance
 tax_free = 12500
 taxpayable = 0
@@ -43,7 +42,8 @@ elif weeklywage > ni2:
     ni = ((((weeklywage - ni1) - abs(ni2 - weeklywage)) * 12 / 100) + ((weeklywage - ni2) * 2 / 100)) * 52
 
 totalded = taxpayable + ni
-
+home = income - totalded
 print('Total tax to pay is: ', taxpayable)
 print('You NI contribution is: ', round(ni, 2))
-print(' Total deductions: ', totalded)
+print('Total deductions: ', totalded)
+print('Your home take is: ', home )
