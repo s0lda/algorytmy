@@ -1,4 +1,4 @@
-income = int(input('What\'s you income?:''\n')
+income = int(input('What\'s you income?:''\n'))
 # Tax Free Allowance
 tax_free = 12500
 taxpayable = 0
