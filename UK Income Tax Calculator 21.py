@@ -1,4 +1,5 @@
 income = int(input('What\'s you income?:''\n'))
+income = 52000
 # Tax Free Allowance
 tax_free = 12500
 taxpayable = 0
@@ -10,6 +11,11 @@ aAmount = 150000
 all_red = (income - hAmount) / 2
 # over 100k you start loosing allowance, that's the end of it.
 allStop = tax_free * 2
+
+#NI contribution
+weeklywage = income / 52
+ni1 = 183
+ni2 = 962
 
 print('Income ', income)
 
@@ -29,4 +35,15 @@ elif income <= aAmount:
 elif income > aAmount:
     taxpayable = 52500 + ((income - 150000) * 45 / 100)
 
+if weeklywage <= ni1:
+    ni = 0
+elif weeklywage > ni1 and weeklywage <= ni2:
+    ni = ((weeklywage - ni1) * 12 / 100) * 52
+elif weeklywage > ni2:
+    ni = ((((weeklywage - ni1) - abs(ni2 - weeklywage)) * 12 / 100) + ((weeklywage - ni2) * 2 / 100)) * 52
+
+totalded = taxpayable + ni
+
 print('Total tax to pay is: ', taxpayable)
+print('You NI contribution is: ', round(ni, 2))
+print(' Total deductions: ', totalded)
