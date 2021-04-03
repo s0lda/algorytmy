@@ -3,13 +3,13 @@ income = int(input('Enter your salary: ''\n'))
 tax_free = 12500
 taxpayable = 0
 # Tax Bands
-sAmount = 50000
-hAmount = 100000
-aAmount = 150000
+std_amount = 50000
+higher_amount = 100000
+adv_amount = 150000
 # in UK over 100k income will reduce tax free allowance. every £2 will reduce allowance by £1
-all_red = (income - hAmount) / 2
+allowance_reduction = (income - higher_amount) / 2
 # over 100k you start loosing allowance, that's the end of it.
-allStop = tax_free * 2
+allowance_stop = tax_free * 2
 
 #NI contribution
 weeklywage = income / 52
@@ -19,26 +19,26 @@ ni2 = 962
 # calculating the amount of tax owed
 
 # tax free amount
-if income <= 12500:
+if income <= tax_free:
     taxpayable = 0
 # 20% rate
-elif income <= sAmount:
+elif income <= std_amount:
     taxpayable = (income - tax_free) * 20 / 100
 # 40% rate
-elif income <= aAmount:
+elif income <= adv_amount:
     # 40% rate for below 100k income
-    if income > sAmount and income <= hAmount:
-        taxpayable = ((sAmount - tax_free) * 20 / 100) + ((income - sAmount) * 40 / 100)
+    if income > std_amount and income <= higher_amount:
+        taxpayable = ((std_amount - tax_free) * 20 / 100) + ((income - std_amount) * 40 / 100)
     # 40% rate for over 100k with reducing tax allowance
-    elif income > hAmount and income <= (hAmount + allStop):
+    elif income > higher_amount and income <= (higher_amount + allowance_stop):
         # lower band(including tax allowance) @ 20% + income - higher band @ 40% + allowance reduction @ 40%
-        taxpayable = ((sAmount - tax_free) * 20 / 100) + ((hAmount - sAmount) * 40 / 100 ) + ((income - hAmount + all_red) * 40 / 100)
+        taxpayable = ((std_amount - tax_free) * 20 / 100) + ((higher_amount - std_amount) * 40 / 100 ) + ((income - higher_amount + allowance_reduction) * 40 / 100)
     # 40% rate for over 100k with no tax allowance left
-    elif income > (hAmount + allStop) and income <= aAmount:
+    elif income > (higher_amount + allowance_stop) and income <= adv_amount:
         # higher band + tax allowance * 2 = no Tax free allowance anymore 
-        taxpayable = ((sAmount - tax_free) * 20 / 100) + ((income - sAmount) * 40 / 100) + (tax_free * 40 / 100)
+        taxpayable = ((std_amount - tax_free) * 20 / 100) + ((income - std_amount) * 40 / 100) + (tax_free * 40 / 100)
 # calculating 45% rate
-elif income > aAmount:
+elif income > adv_amount:
     taxpayable = 52500 + ((income - 150000) * 45 / 100)
 
 # calculating National Insurance contribution
