@@ -56,8 +56,10 @@ elif weekly_wage > ni2:
 # total deductions and home take
 total_deductions = taxpayable + ni
 home = income - total_deductions
+weekly_home = home / 52
 
-print('Total tax to pay is:     ', taxpayable)
-print('You NI contribution is:  ', round(ni, 2))
-print('Total deductions:        ', total_deductions)
-print('Your home take is:       ', round(home, 2))
+print('Total tax to pay is:      ', taxpayable)
+print('You NI contribution is:   ', round(ni, 2))
+print('Total deductions:         ', total_deductions)
+print('Your home take is:        ', round(home, 2))
+print('Your weekly home take is: ', round(weekly_home,2))
