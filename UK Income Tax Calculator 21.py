@@ -12,7 +12,7 @@ allowance_reduction = (income - higher_amount) / 2
 allowance_stop = tax_free * 2
 
 #NI contribution
-weeklywage = income / 52
+weekly_wage = income / 52
 ni1 = 183
 ni2 = 962
 
@@ -39,25 +39,25 @@ elif income <= adv_amount:
         taxpayable = ((std_amount - tax_free) * 20 / 100) + ((income - std_amount) * 40 / 100) + (tax_free * 40 / 100)
 # calculating 45% rate
 elif income > adv_amount:
-    taxpayable = 52500 + ((income - 150000) * 45 / 100)
+    taxpayable = ((std_amount - tax_free) * 20 / 100) + ((adv_amount - std_amount) * 40 / 100) + (tax_free * 40 / 100) + ((income - adv_amount) * 45 / 100)
 
 # calculating National Insurance contribution
 
 # NI rate free amount
-if weeklywage <= ni1:
+if weekly_wage <= ni1:
     ni = 0
 # calculating 12 % NI rate
-elif weeklywage > ni1 and weeklywage <= ni2:
-    ni = ((weeklywage - ni1) * 12 / 100) * 52
+elif weekly_wage > ni1 and weekly_wage <= ni2:
+    ni = ((weekly_wage - ni1) * 12 / 100) * 52
 # calculating 2% NI rate
-elif weeklywage > ni2:
-    ni = ((((weeklywage - ni1) - abs(ni2 - weeklywage)) * 12 / 100) + ((weeklywage - ni2) * 2 / 100)) * 52
+elif weekly_wage > ni2:
+    ni = ((((weekly_wage - ni1) - abs(ni2 - weekly_wage)) * 12 / 100) + ((weekly_wage - ni2) * 2 / 100)) * 52
 
 # total deductions and home take
-totalded = taxpayable + ni
-home = income - totalded
+total_deductions = taxpayable + ni
+home = income - total_deductions
 
-print('Total tax to pay is: ', taxpayable)
-print('You NI contribution is: ', round(ni, 2))
-print('Total deductions: ', totalded)
-print('Your home take is: ', round(home, 2))
+print('Total tax to pay is:     ', taxpayable)
+print('You NI contribution is:  ', round(ni, 2))
+print('Total deductions:        ', total_deductions)
+print('Your home take is:       ', round(home, 2))
