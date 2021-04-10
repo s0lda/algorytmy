@@ -11,3 +11,9 @@ def fibonacci(n):
         return lst
 fib = (fibonacci(num)[:-1])
 print(*(fib), sep='\n')
+
+# other method
+a, b = 0, 1
+while a < 10:
+    print(a)
+    a, b = b, a + b
