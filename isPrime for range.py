@@ -16,5 +16,5 @@ def primeGenerator(a, b):
     
 f = int(input())
 t = int(input())
-
-print(list(primeGenerator(f, t)))
+# t + 1 to include input number
+print(list(primeGenerator(f, t + 1)))
