@@ -7,16 +7,15 @@ int FizzBuzz(){
     int i;
     cout << "Please input number: "; cin >> num;
 
-    // to include input num in range
-    for (i = 1; i <= num; i++){
-        if (i % 3 == 0){
+    for (i = 1; i < num; i++){
+        if (i % 3 == 0 && i % 5 == 0){
+            cout << i << " FizzBuzz" << endl;
+        }
+        else if (i % 3 == 0){
             cout << i << " Fizz" << endl;
         }
         else if (i % 5 == 0){
             cout << i << " Buzz" << endl;
-        }
-        else if (i % 3 == 0 || i % 5 == 0){
-            cout << i << " FizzBuzz" << endl;
         }
         else
             cout << i << endl;
