@@ -7,7 +7,7 @@ int FizzBuzz(){
     int i;
     cout << "Please input number: "; cin >> num;
 
-    for (i = 1; i < num; i++){
+    for (i = 1; i <= num; i++){
         if (i % 3 == 0 && i % 5 == 0){
             cout << i << " FizzBuzz" << endl;
         }
