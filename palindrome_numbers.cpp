@@ -23,10 +23,10 @@ int main() {
     cout << "Enter number: "; cin >> n;
 
     if(isPalindrome(n)) {
-        cout << n << " is a palindrome";
+        cout << n << " is a palindrome.";
     }
     else {
-        cout << n << " is NOT a palindrome";
+        cout << n << " is NOT a palindrome.";
     }
     return 0;
 }
