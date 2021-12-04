@@ -4,7 +4,7 @@ public class FizzBuzz {
 
     public static void Fizz_Buzz(int number) {
         for (int i = 1; i <= number; i++) {
-            if (i % 3 == 0 & i % 5 == 0) {
+            if (i % 3 == 0 && i % 5 == 0) {
                 System.out.println(i + " FizzBuzz");
             }
             else if (i % 3 == 0) {
