@@ -7,10 +7,10 @@ public class FizzBuzz {
             if (i % 3 == 0 & i % 5 == 0) {
                 System.out.println(i + " FizzBuzz");
             }
-            if (i % 3 == 0) {
+            else if (i % 3 == 0) {
                 System.out.println(i + " Fizz");
             }
-            if (i % 5 == 0) {
+            else if (i % 5 == 0) {
                 System.out.println(i + " Buzz");
             }
             else {
